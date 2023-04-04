@@ -154,6 +154,7 @@ def _get_sso_role_credentials(profile, login):
 
 
 def _store_aws_credentials(profile_name, profile_opts, credentials):
+    profile_name = re.sub(r"^profile ", "", str(profile_name))
     _print_msg(f'\nAdding to credential files under [{profile_name}]')
 
     region = profile_opts.get("region", AWS_DEFAULT_REGION)
